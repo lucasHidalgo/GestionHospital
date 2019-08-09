@@ -1,28 +1,26 @@
-import { User } from './../_models/user';
+import { User } from '../../_models/user';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-users-list',
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.css']
 })
 
-export class UsersComponent implements OnInit {  
+export class UsersListComponent implements OnInit {  
   displayedColumns: string[] = ['Id', 'Nombre', 'Apellido', 'Edad'];
   dataSource: MatTableDataSource<User>;
-  
-  
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { 
+  constructor() {
     const usuarios = Array.from({length: 100}, (_, k) => CrearUsuarios());
 
     this.dataSource = new MatTableDataSource(usuarios);
-    console.log(usuarios);
   }
 
   ngOnInit() {
@@ -37,7 +35,6 @@ export class UsersComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-   
 }
 
 function CrearUsuarios(): User{

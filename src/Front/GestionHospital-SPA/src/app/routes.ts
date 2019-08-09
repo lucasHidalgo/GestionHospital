@@ -1,6 +1,7 @@
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/Users.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
 import { Routes } from '@angular/router';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -8,7 +9,8 @@ const routes: Routes = [
     path: '',
     runGuardsAndResolvers: 'always',
     children: [
-      {path: 'users', component: UsersComponent}
+      {path: 'users', component: UsersListComponent},
+      {path: 'NewUser', component: UserEditComponent}
     ]
   },
   {path: '**', redirectTo: '', pathMatch: 'full'}

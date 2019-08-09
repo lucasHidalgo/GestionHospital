@@ -7,7 +7,7 @@ namespace GestionHospital.Data.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }   
 
-        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Users> Users { get; set; }
         
     }
 }

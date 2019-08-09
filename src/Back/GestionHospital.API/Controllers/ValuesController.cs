@@ -21,8 +21,8 @@ namespace GestionHospital.API.Controllers
         [HttpGet]
         public IActionResult GetValues()
         {            
-            var usuarios = context.Usuarios.ToList();            
-            return Ok(usuarios);
+            var Users = context.Users.ToList();            
+            return Ok(Users);
         }
 
         // GET api/values/5
