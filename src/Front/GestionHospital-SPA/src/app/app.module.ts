@@ -1,5 +1,5 @@
 import { AppRoutes } from './routes';
-import { DemoMaterialModule } from './material-module';
+import { MaterialModule } from './material-module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -11,9 +11,10 @@ import { HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { SidenavComponent } from './nav/sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { PagesComponent } from './nav/pages/pages.component';
 
 
 @NgModule({
@@ -22,13 +23,14 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
       UsersListComponent,
       UserEditComponent,
       SidenavComponent,
-      HomeComponent
+      HomeComponent,
+      PagesComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      DemoMaterialModule,
+      MaterialModule,
       MatNativeDateModule,
       FormsModule,
       ReactiveFormsModule,

@@ -9,7 +9,6 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class SidenavComponent {
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
-
   close(reason: string) {
     this.sidenav.close();
   }

@@ -15,7 +15,6 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {}
 
   createNewUser() {
-    console.log(this.user);
     this.userService.createNewUser(this.user).subscribe(() => {
       console.log('success');
     }, error => console.log(error));

@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <mat-list role="list">
+            <mat-card>Gestion de Hospital</mat-card>
+            <mat-divider></mat-divider>
+            <!-- TODO: create component for accordion-->
+            <app-pages></app-pages>           
+            <mat-divider></mat-divider>           
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <p>
+            <button mat-button (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>Gestion hospital</button>
+        </p>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

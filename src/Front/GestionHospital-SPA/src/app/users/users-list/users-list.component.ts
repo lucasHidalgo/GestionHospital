@@ -1,3 +1,4 @@
+import { UserService } from './../../_services/user.service';
 import { User } from '../../_models/user';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -17,15 +18,27 @@ export class UsersListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
+  constructor(private userService: UserService) {
     const usuarios = Array.from({length: 100}, (_, k) => CrearUsuarios());
-
     this.dataSource = new MatTableDataSource(usuarios);
   }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  loadDoctors() {
+    this.userService.getDoctors().subscribe((response: User[]) => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+  loadPatients() {
+    this.userService.getPatients().subscribe((response: User[]) => {
+      console.log(response);
+    }, err => {console.log(err)});
   }
 
   applyFilter(filterValue: string) {

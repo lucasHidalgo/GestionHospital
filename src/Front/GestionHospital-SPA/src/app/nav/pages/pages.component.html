@@ -1,0 +1,17 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel *ngFor="let menu of menuPages" >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{menu.Name}}                
+            </mat-panel-title>
+            <mat-panel-description>
+                {{menu.Description}}
+                <mat-icon>{{menu.matIcon}}</mat-icon>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- Pages -->
+        <mat-list-item role="listitem" *ngFor="let page of menu.pages" >
+            <a mat-button [routerLink]="[page.Url]">{{page.Name}}</a>
+        </mat-list-item>
+    </mat-expansion-panel>                 
+</mat-accordion> 
